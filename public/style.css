@@ -1,0 +1,55 @@
+header{
+  background: maroon;
+  color: lightgoldenrodyellow;
+  font-family: cursive;
+  padding: 10px;
+}
+
+a{
+  color: blue;
+  font-weight: bold;
+}
+
+body{
+  background-color: cornsilk;
+}
+
+nav{
+  background: lightgray;
+  padding: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1{
+  margin: 0px;
+}
+
+h2{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h3{
+  background-color: maroon;
+  border: 10px solid maroon;
+  border-radius: 10px;
+  color: lightgoldenrodyellow;
+  font-family: cursive;
+  padding-left: 2px;
+}
+
+h4{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.earlylife{
+  font-family: cursive;
+  font-size: 20px;
+}
+
+#aboutjordan{
+  background-color: powderblue;
+}
+
+p{
+  font-family: Arial, Helvetica, sans-serif;
+}
