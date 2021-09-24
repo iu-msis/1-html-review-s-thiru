@@ -11,21 +11,26 @@ const Person = {
         .format('D MMM YYYY')
     }
   },
-  created() {
-      console.log("A");
 
+  methods:{
+    fetchUserData() {
       fetch('https://randomuser.me/api/')
       .then(response => response.json())
-      .then((json) => {
-          console.log(json);
-          this.person = json.results[0];
+      .then((parsedJson) => {
+          console.log(parsedJson);
+          this.person = parsedJson.results[0]
           console.log("C");
       })
       .catch( err => {
-          console.error(err);
-      });
+          console.error(err)
+      })
 
       console.log("B");
+  },
+  },
+
+  created() {
+    this.fetchUserData();  
   }
 }
 
