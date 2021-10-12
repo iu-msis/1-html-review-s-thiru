@@ -10,6 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@next"></script>
 
 
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -54,9 +55,9 @@
   </nav>
 
     <main class = 'row'>
-      <div class = 'one col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+      <!-- <div class = 'one col-lg-12 col-md-12 col-sm-12 col-xs-12'> -->
       <h2>Books About Michael Jordan</h2>
-
+    <div id='random' class='container'>   
     <table id = 'taskTable' class ='table table-bordered table-striped table-hover table-condensed'>
       <thead>
         <tr>
@@ -70,52 +71,15 @@
       </thead>
 
       <tbody>
-        <tr>
-          <td>Michael Jordan: The Life</td>
-          <td>Roland Lazenby</td>
-          <td>2015</td>
-          <td>Back Bay Books</td>
-          <td>720</td>
-          <td>$18.09</td> 
+        <tr v-for= "book in books">
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.year_published}}</td>
+          <td>{{book.publisher}}</td>
+          <td>{{book.page_count}}</td>
+          <td>{{prettyDollar (book.msrp)}}</td>
+
         </tr>
-
-        <tr>
-          <td>Who is Michael Jordan?</td>
-          <td>Kristen Anderson</td>	
-          <td>2019</td>
-          <td>Penguin Workshop</td>
-          <td>112</td>
-          <td>$5.43</td>
-        </tr>
-
-
-        <tr>
-          <td>Driven from Within</td>
-          <td> Michael Jordan</td>
-          <td>2005</td>
-          <td>Atria Books</td>
-          <td>190</td>
-          <td>$24.99</td>
-        </tr>
-
-        <tr>
-          <td>When Nothing Else Matters</td>
-          <td>Michael Leahy</td>
-          <td>2004</td>
-          <td>Simon & Schuster</td>
-          <td>448</td>
-          <td>$15.99</td>
-        </tr>
-
-        <tr>
-          <td>The Legend of Michael Jordan</td>
-          <td>Adam Motin</td>
-          <td>2020</td>
-          <td>Triumph Books</td>
-          <td>113</td>
-          <td>$9.99</td>
-        </tr>
-
       </tbody>
     </table>
     </div>
@@ -143,7 +107,7 @@
       </form>
 
       
-    <main>
+    </main>
 
     </div>
     <script src="js/tablesort.min.js"></script>
@@ -151,5 +115,6 @@
       // Tablesort plugin from http://tristen.ca/tablesort/demo/
       new Tablesort(document.getElementById('taskTable'));
     </script>
+    <script src="js/index.js"></script>
   </body>
 </html>
