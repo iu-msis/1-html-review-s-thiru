@@ -82,22 +82,22 @@
         </tr>
       </tbody>
     </table>
-    </div>
+    
 
 
-    <form>
+    <form v-on:submit.prevent="postNewBook">
       <div class = 'one col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-        <label for ='title'>Title: <input type='text' name='title' id='title' placeholder='Enter Title'></label>
+        <label for ='title'>Title: <input type='text' v-model="bookForm.title" name='title' id='title' placeholder='Enter Title'></label>
 
-        <label for ='lastname'>Author: <input type='text' name='author' id='author' placeholder='Enter Author Name'></label>
+        <label for ='author'>Author: <input type='text' v-model="bookForm.author" name='author' id='author' placeholder='Enter Author Name'></label>
 
-        <label for ='yearpublished'>Year Published: <input type='text' name='yearpublished' id='yearpublished' placeholder='Enter Year Published'></label>
+        <label for ='year_published'>Year Published: <input type='text' v-model="bookForm.year_published" name='year_published' id='year_published' placeholder='Enter Year Published'></label>
 
-        <label for ='publisher'>Publisher: <input type='text' name='publisher' id='publisher' placeholder='Enter Publisher Name'></label>
+        <label for ='publisher'>Publisher: <input type='text' v-model="bookForm.publisher" name='publisher' id='publisher' placeholder='Enter Publisher Name'></label>
 
-        <label for ='pagecount'>Page Count: <input type='text' name='pagecount' id='pagecount' placeholder='Enter Page Count'></label>
+        <label for ='page_count'>Page Count: <input type='text' v-model="bookForm.page_count" name='page_count' id='page_count' placeholder='Enter Page Count'></label>
 
-        <label for ='msrp'>MSRP: <input type='text' name='msrp' id='msrp' placeholder='Enter MSRP'></label>
+        <label for ='msrp'>MSRP: <input type='text' v-model="bookForm.msrp" name='msrp' id='msrp' placeholder='Enter MSRP'></label>
 
         
 
@@ -105,6 +105,7 @@
 
       </div>
       </form>
+      </div>
 
       
     </main>
