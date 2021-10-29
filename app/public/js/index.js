@@ -48,6 +48,66 @@ const Person = {
 
       console.log("B");
 },
+    selectBookToEdit(o) {
+      this.selectedBook = o;
+      this.bookForm = Object.assign({}, this.selectedBook);
+    },
+    postDeleteBook(o) {
+      if (!confirm("Confirm delete of this entry? This action cannot be undone.")) {
+        return;
+      }
+      console.log("Delete!", o);
+
+      fetch('api/books/delete.php', {
+          method:'POST',
+          body: JSON.stringify(o),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .then( json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.books = json;
+
+          // reset the form
+          this.resetBookForm();
+        });
+    },
+    resetBookForm() {
+      this.selectedBook = null;
+      this.bookForm = {};
+    },
+    postBook(evt) {
+      if (this.selectedBook === null) {
+          this.postNewBook(evt);
+      } else {
+          this.postEditBook(evt);
+      }
+    },
+    postEditBook(evt) {
+
+      console.log("Updating!", this.bookForm);
+
+      fetch('api/books/update.php', {
+          method:'POST',
+          body: JSON.stringify(this.bookForm),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .then( json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.books = json;
+
+          // reset the form
+          this.resetBookForm();
+
+        });
+    },
 postNewBook(evt) {
 
   fetch('api/books/create.php', {
